@@ -1,0 +1,44 @@
+{{#partial "content"}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 flex-me">
+            <h1>Heroes</h1>
+            <a href="/heroes/add" class="btn btn-success">Add hero</a>
+        </div>
+    </div>
+    <div class="row">
+<!--        <div class="col-md-12">-->
+<!--            <a href="/heroes/add" class="btn btn-success">Create</a>-->
+<!--        </div>-->
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{#if heroes}}
+            <table class="table table-striped">
+                <thead>
+                    <tr class="inverted-color">
+                        <th>Name</th>
+                        <th>Super power</th>
+                        <th>Weakness</th>
+                        <th>age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each heroes}}
+                        <tr class="default-color">
+                            <td class="link-color">{{name}}</td>
+                            <td class="link-color">{{superpower}}</td>
+                            <td class="link-color">{{weakness}}</td>
+                            <td class="link-color">{{age}}</td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+            {{else}}
+                <h3>No heroes found</h3>
+            {{/if}}
+        </div>
+    </div>
+</div>
+{{/partial}}
+{{> layout.hbs}}
