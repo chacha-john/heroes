@@ -6,6 +6,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HeroesDao implements iHeroes {
@@ -46,10 +47,10 @@ public class HeroesDao implements iHeroes {
     }
 
     @Override
-    public List<Heroes> findBySquad(int squadId) {
+    public ArrayList<Heroes> findBySquad(int squadId) {
         try(Connection con = sql2o.open()){
             String query = "SELECT * WHERE squadid = :squadId";
-            return con.createQuery(query)
+            return (ArrayList<Heroes>) con.createQuery(query)
                     .addParameter("squadId",squadId)
                     .throwOnMappingFailure(false)
                     .executeAndFetch(Heroes.class);
@@ -59,10 +60,10 @@ public class HeroesDao implements iHeroes {
     }
 
     @Override
-    public List<Heroes> getAll() {
+    public ArrayList<Heroes> getAll() {
         try(Connection con = sql2o.open()){
             String query = "SELECT * FROM heroes";
-            return con.createQuery(query)
+            return (ArrayList<Heroes>) con.createQuery(query)
                     .throwOnMappingFailure(false)
                     .executeAndFetch(Heroes.class);
         } catch (Sql2oException ex){

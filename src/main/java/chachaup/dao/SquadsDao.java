@@ -6,7 +6,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.sql2o.Sql2oException;
 
-import java.util.List;
+import java.util.ArrayList;
 
 public class SquadsDao implements iSquads {
     private final Sql2o sql2o;
@@ -48,10 +48,10 @@ public class SquadsDao implements iSquads {
     }
 
     @Override
-    public List<Squads> findByCause(String cause) {
+    public ArrayList<Squads> findByCause(String cause) {
         try(Connection con = sql2o.open()){
             String query = "SELECT * FROM squads WHERE cause = :cause";
-            return con.createQuery(query)
+            return (ArrayList<Squads>) con.createQuery(query)
                     .throwOnMappingFailure(false)
                     .addParameter("cause",cause)
                     .executeAndFetch(Squads.class);
@@ -62,10 +62,10 @@ public class SquadsDao implements iSquads {
     }
 
     @Override
-    public List<Squads> getAll() {
+    public ArrayList<Squads> getAll() {
         try(Connection con = sql2o.open()){
             String query = "SELECT * FROM squads";
-            return con.createQuery(query)
+            return (ArrayList<Squads>) con.createQuery(query)
                     .throwOnMappingFailure(false)
                     .executeAndFetch(Squads.class);
         } catch (Sql2oException ex){
