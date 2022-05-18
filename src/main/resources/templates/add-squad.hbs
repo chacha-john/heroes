@@ -1,0 +1,25 @@
+{{#partial "content"}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Add a squad</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/squad/add" method="post">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="description">Maximum number of heroes for the squad</label>
+                    <input class="form-control" id="max" name="max" placeholder="8"></input>
+                </div>
+                <div class="form-group">
+                    <label for="image">Cause</label>
+                    <input type="text" class="form-control" id="cause" name="cause" placeholder="cause">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+{{/partial}}
