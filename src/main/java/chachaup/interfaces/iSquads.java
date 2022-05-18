@@ -12,6 +12,8 @@ public interface iSquads {
     Squads findById(int id);
     List<Squads> findByCause(String cause);
     List<Squads> getAll();
+    //update
+    void addCount(int squadId);
     //delete
     void deleteById(int id);
     void deleteAll();
