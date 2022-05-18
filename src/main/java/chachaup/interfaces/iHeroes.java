@@ -2,6 +2,7 @@ package chachaup.interfaces;
 
 import chachaup.domain.Heroes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public interface iHeroes {
@@ -9,8 +10,8 @@ public interface iHeroes {
     void addHero(Heroes hero);
     //read
     Heroes findById(int id);
-    List<Heroes> findBySquad(int squadId);
-    List<Heroes> getAll();
+    ArrayList<Heroes> findBySquad(int squadId);
+    ArrayList<Heroes> getAll();
     //delete
     void deleteById(int id);
     void deleteAll();
