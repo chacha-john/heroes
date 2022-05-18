@@ -1,0 +1,18 @@
+{{#partial "content"}}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            {{#if heroes}}
+            <h1>Heroes</h1>
+                {{#each heroes}}
+                    {{id}}. {{name}}
+                    Powers: {{superpower}}
+                    Weaknesses: {{weakness}}
+                {{/each}}
+            {{/if}}
+            <h4><a href="/heroes/add" class="btn btn-primary" role="button">Add hero</a></h4>
+        </div>
+    </div>
+</div>
+{{/partial}}
+{{> layout.hbs}}
