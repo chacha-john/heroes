@@ -1,0 +1,10 @@
+{{#partial "user"}}
+    <form action="/login" method="post">
+        <div class="form-group text-center">
+            <label for="name" class="fs-3">Hello and welcome! Enter your name to get started.</label>
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required>
+        </div>
+        <button type="submit" class="btn inverted-color mt-2">Submit</button>
+    </form>
+{{/partial}}
+{{> layout.hbs}}
