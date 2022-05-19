@@ -75,26 +75,26 @@ public class SquadsDao implements iSquads {
 
     @Override
     public void addCount(int squadId) {
-        try(Connection con = sql2o.open()){
-            String query = "SELECT * FROM squads WHERE id = :squadId";
-            Squads squad = con.createQuery(query)
-                    .addParameter("squadId",squadId)
-                    .throwOnMappingFailure(false)
-                    .executeAndFetchFirst(Squads.class);
-            int newCount = (squad.getCount())+1;
-            int id = squad.getId();
-            try{
-                String setQuery = "UPDATE squads SET count = :newCount WHERE id = :id";
-                con.createQuery(setQuery)
-                        .addParameter("newCount",newCount)
-                        .addParameter("id",id)
-                        .executeUpdate();
-            } catch (Sql2oException ex){
-                throw new RuntimeException("Error encountered", ex);
-            }
-        } catch (Sql2oException ex){
-            throw new RuntimeException("Error encountered",ex);
-        }
+//        try(Connection con = sql2o.open()){
+//            String query = "SELECT * FROM squads WHERE id = :squadId";
+//            Squads squad = con.createQuery(query)
+//                    .addParameter("squadId",squadId)
+//                    .throwOnMappingFailure(false)
+//                    .executeAndFetchFirst(Squads.class);
+//            int newCount = (squad.getCount())+1;
+//            int id = squad.getId();
+//            try{
+//                String setQuery = "UPDATE squads SET count = :newCount WHERE id = :id";
+//                con.createQuery(setQuery)
+//                        .addParameter("newCount",newCount)
+//                        .addParameter("id",id)
+//                        .executeUpdate();
+//            } catch (Sql2oException ex){
+//                throw new RuntimeException("Error encountered", ex);
+//            }
+//        } catch (Sql2oException ex){
+//            throw new RuntimeException("Error encountered",ex);
+//        }
 
     }
 
@@ -117,6 +117,23 @@ public class SquadsDao implements iSquads {
         try(Connection con = sql2o.open()){
             String query = "DELETE FROm squads";
             con.createQuery(query)
+                    .throwOnMappingFailure(false)
+                    .executeUpdate();
+        } catch (Sql2oException ex){
+            throw new RuntimeException("Error encountered", ex);
+        }
+
+    }
+
+    @Override
+    public void update(int id, Squads squad) {
+        try(Connection con = sql2o.open()){
+            String query = "UPDATE squads SET name = :name, cause = :cause, count = :count WHERE id = :id";
+            con.createQuery(query)
+                    .addParameter("name",squad.getName())
+                    .addParameter("cause",squad.getCause())
+                    .addParameter("count",squad.getCount())
+                    .addParameter("id",id)
                     .throwOnMappingFailure(false)
                     .executeUpdate();
         } catch (Sql2oException ex){
