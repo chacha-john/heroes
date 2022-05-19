@@ -95,6 +95,22 @@ class SquadsDaoTest {
         assertEquals(0,squadsDao.getAll().size());
     }
 
+    @Test
+    void getCount() {
+        Squads squad = setUpSquad();
+        squadsDao.addSquad(squad);
+        assertEquals(0,squadsDao.findById(squad.getId()).getCount());
+    }
+
+    @Test
+    void update() {
+        Squads squad = setUpSquad();
+        squadsDao.addSquad(squad);
+        Squads squad2 = new Squads(15, "chachas","coffee");
+        squadsDao.update(squad.getId(),squad2);
+        assertEquals("coffee",squadsDao.findById(squad.getId()).getCause());
+    }
+
     //helper methods
     public Squads setUpSquad(){
         Squads squad = new Squads(15, "chachas","code");
