@@ -11,6 +11,7 @@ public class Squads {
         this.maxSize = maxSize;
         this.name = name;
         this.cause = cause;
+        this.count = 0;
     }
 
     public int getId() {
