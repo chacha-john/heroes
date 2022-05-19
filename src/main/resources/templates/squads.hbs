@@ -11,20 +11,28 @@
                     <div class="col-md-12">
                         <div class="table-responsive">
                             {{#if squads}}
-                            <table class="table table-striped table-bordered table-hover">
+                            <table class="table table-bordered table-hover">
                                 <thead>
-                                    <tr>
+                                    <tr class="default-color">
                                         <th>Name</th>
                                         <th>Cause</th>
-                                        <th>Maximum heroes</th>
+                                        <th>Heroes in the squad</th>
+                                        <th>Add hero to squad</th>
+                                        <th>Remove squad</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {{#each squads}}
-                                    <tr>
-                                        <td>{{name}}</td>
-                                        <td>{{cause}}</td>
-                                        <td>{{max}}</td>
+                                    <tr class="">
+                                        <td class="link-color">{{name}}</td>
+                                        <td class="link-color">{{cause}}</td>
+                                        <td class="link-color">{{count}}</td>
+                                        <td>
+                                            <a href="/squads/{{id}}/add-hero" class="fs-5 text-decoration-none link-color">Add hero</a>
+                                        </td>
+                                        <td>
+                                            <a href="/squads/{{id}}/delete" class="fs-5 text-decoration-none text-danger flex-end">Delete Squad</a>
+                                        </td>
                                     </tr>
                                     {{/each}}
                                 </tbody>
