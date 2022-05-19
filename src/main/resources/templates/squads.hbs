@@ -1,0 +1,52 @@
+{{#partial "content"}}
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading flex-me">
+                <h3 class="panel-title">Squads</h3>
+                <a href="/squads/add" class="btn btn-success">Add squad</a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            {{#if squads}}
+                            <table class="table table-bordered table-hover">
+                                <thead>
+                                    <tr class="default-color">
+                                        <th>Name</th>
+                                        <th>Cause</th>
+                                        <th>Heroes in the squad</th>
+                                        <th>Add hero to squad</th>
+                                        <th>Remove squad</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each squads}}
+                                    <tr class="">
+                                        <td class="link-color">{{name}}</td>
+                                        <td class="link-color">{{cause}}</td>
+                                        <td class="link-color">{{count}}</td>
+                                        <td>
+                                            <a href="/squads/{{id}}/add-hero" class="fs-5 text-decoration-none link-color">Add hero</a>
+                                        </td>
+                                        <td>
+                                            <a href="/squads/{{id}}/delete" class="fs-5 text-decoration-none text-danger flex-end">Delete Squad</a>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                            {{else}}
+                            <p>No squads found.</p>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{/partial}}
+{{> layout.hbs}}

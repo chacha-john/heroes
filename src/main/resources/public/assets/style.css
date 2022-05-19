@@ -1,0 +1,24 @@
+body{
+background-image: url(/assets/blackpanther.jpeg);
+background-repeat: no-repeat;
+background-size: cover;
+color: #BAEECE;
+}
+.inverted-color{
+color: black;
+background-color: #BAEECE;
+}
+.default-color{
+color: #BAEECE;
+background-color: black;
+}
+
+.link-color, .link-color:focus, .link-color:hover, .paint{
+color: #BAEECE;
+}
+.flex-me{
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+}
