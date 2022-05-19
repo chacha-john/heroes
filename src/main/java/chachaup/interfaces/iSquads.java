@@ -19,4 +19,5 @@ public interface iSquads {
     void deleteById(int id);
     void deleteAll();
 
+    void update(int id, Squads squad);  //update
 }
