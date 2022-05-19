@@ -36,25 +36,6 @@ class SquadsDaoTest {
         assertEquals(1, squad.getId());
 
     }
-    @Test
-    void addCount() {
-        Squads squad = setUpSquad();
-        squadsDao.addSquad(squad);
-        int initial = squad.getCount();
-        squadsDao.addCount(squad.getId());
-        int current = squad.getCount();
-        assertEquals(initial,current);
-    }
-
-    @Test
-    void addHero() {
-        Squads squad = setUpSquad();
-        Heroes hero = setUpHero();
-        squadsDao.addHero(hero.getId());
-        squad.setCount(setUpSquad().getCount()+1);
-        squadsDao.addSquad(squad);
-
-    }
 
     @Test
     void findById() {

@@ -49,7 +49,7 @@ public class HeroesDao implements iHeroes {
     @Override
     public ArrayList<Heroes> findBySquad(int squadId) {
         try(Connection con = sql2o.open()){
-            String query = "SELECT * WHERE squadid = :squadId";
+            String query = "SELECT * FROM heroes WHERE squadid = :squadId";
             return (ArrayList<Heroes>) con.createQuery(query)
                     .addParameter("squadId",squadId)
                     .throwOnMappingFailure(false)
